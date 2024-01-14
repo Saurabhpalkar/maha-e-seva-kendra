@@ -2,9 +2,9 @@
 include 'index.php';
 ?>
 
-<div class="container col-12">
+<div class="container col-10" >
     <h1>User Requests</h1>
-    <div class="fluid-container">
+    <div class="fluid-container"style="display: flex; ">
         <table class="table-bordered table" id= "userRequest">
             <thead>
             <tr>
@@ -33,13 +33,13 @@ include 'index.php';
                 var htttpResponse = JSON.parse(response);
                 // console.log(htttpResponse.length);
                 if(htttpResponse.length>0){
-                // console.log(htttpResponse)
+                console.log(htttpResponse)
                 var userRequest =  $('#userRequest')
                 // userRequest.empty();
                 for(var i = 0 ; i<htttpResponse.length; i++){
                     var  row = $('<tr> ');
                     row.append('<td>' +    i + 1  + '</td>' )
-                    row.append('<td>' +    htttpResponse[i]['firstname']  + '</td>' )
+                    row.append('<td>' +    htttpResponse[i]['child_name']  + '</td>' )
                     row.append('<td>' +    htttpResponse[i]['document_name']  + '</td>' )
                     row.append('<td>' +    htttpResponse[i]['status'] + '</td>' )
                     row.append('<td>  <button  onclick="viewdata('+htttpResponse[i]['id']+')"  name="view" id="view" class="btn btn-success" >VIEW</button></td>')
@@ -65,7 +65,7 @@ include 'index.php';
         data : {doc_id, btnClick},
         type: 'POST',
         success: function(response){
-            console.log(response)
+            // console.log(response)
             if(response === "success"){
                 if(btnClick === 'approve'){
                     alert("Birth certificate has been APPROVE")

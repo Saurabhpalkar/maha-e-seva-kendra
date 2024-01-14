@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $query = "insert into userdocuments(document_name, document_value, status, userid, updated_on)
   values('Birth Certificate', '1', 'INACTIVE', '$userid', CURRENT_TIMESTAMP)";
   $res = mysqli_query($connection, $query) or die(mysqli_error($connection));
-  if($res){
+  if($res){ 
     $id = mysqli_insert_id($connection);
 
 

@@ -22,6 +22,7 @@
           <input type="password" class="form-control" id="password" name="password" required>
         </div>
         <button type="submit" class="btn btn-primary">Login</button>
+        <a href="fogot_password.php">Forgot Password</a>
       </form>
       <div class="form-group">
         <p>New User? <a href="registrationForm.php">Register here</a></p>

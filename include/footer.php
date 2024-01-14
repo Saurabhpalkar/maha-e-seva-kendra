@@ -10,7 +10,7 @@
 
 </head>    
 <body>
-<footer class="container-fluid text-center text-white col-12 form-group bg-secondary">
+<footer class=" text-center text-white col-12 form-group bg-secondary">
   <p>@copywrite by Saurabh Palkar </p>
 </footer>
         

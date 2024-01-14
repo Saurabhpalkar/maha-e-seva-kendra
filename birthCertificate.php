@@ -2,10 +2,10 @@
 include 'index.php'
 ?>
 
-<div class="container col-12">
-  <div class="col-10 border">
+<div class="col-md-10 col-sm-10 col-lg-10 col-xl-10">
+  <div class=" border">
     <form id="birthForm">
-      <div class="container col-12 d-flex flex-wrap  justify-content-center">
+      <div class=" col-12 d-flex flex-wrap  justify-content-center">
         <div class=" col-12">
           <h2 class="mt-4 form-group text-success text-center "><b>Birth Certificate Form</b> </h2>
           <hr>
@@ -84,9 +84,14 @@ include 'index.php'
   </div>
 </div>
 </div>
+
+<div class="col-12 col-sm-12 col-xl-12 col-xxl-12 col-md-12 " style="padding:0">
+    <?php include 'include/footer.php' ?>
+</div>
+<!-- </div>
 </div>
 </div>
-</div>
+</div> -->
 
 <?php
 // include 'include/footer.php'
@@ -247,4 +252,14 @@ var statebtn = "state"
     crudOperation(doc_id, btnClick);
 
   }
+  // var url = new URL(window.location.href);
+  // // console.log(url.searchParams);
+  // url.searchParams.forEach(
+  //   function(val, key){
+  //     console.log(val);
+  //     console.log(key);
+  //   }
+  // )
+
+  // console.log(url);
 </script>
