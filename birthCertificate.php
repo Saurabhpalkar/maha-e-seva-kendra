@@ -70,7 +70,7 @@ include 'index.php'
             </div>
         <div class="form-group col-5">
           <!-- <center> -->
-          <button type="submit" name="submit" class="btn btn-success col-12  form-group submit-btn" style="margin-top: 24px;">Submit</button>
+          <button type="submit" name="submit" value="birth" id="submit-btn" class="btn btn-success col-12  form-group submit-btn" style="margin-top: 24px;">Submit</button>
 
           <!-- </center> -->
         </div>
@@ -124,14 +124,12 @@ include 'index.php'
             }
         })
     }
-  //  $('#loginForm').submit(function(event) {
-  // event.preventDefault(); 
   $(document).ready(function() {
-    
     $('#birthForm').submit(function(e) {
       e.preventDefault();
-
       var birthFormdata = $(this).serialize()
+      var submitbtn  =$('#submit-btn').val()
+      birthFormdata += '&submitbtn='+submitbtn;
       $.ajax({
         url: 'birthCertificateInsert.php',
         data: birthFormdata,
@@ -140,19 +138,14 @@ include 'index.php'
           console.log(response)
           if (response === 'success') {
             alert('Successfully applied for birth certificate');
-
           } else {
             alert('Oops! Something went wrong. Please check your form and try again.');
-
           }
-
         }
       })
     })
     <?php
     if ($_GET) {
-      // $doc_id = $_GET['doc_id'];
-
     ?>
       var doc_id = '<?php echo $_GET['doc_id']; ?>';
       $('.submit-btn').hide()

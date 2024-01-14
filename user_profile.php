@@ -1,6 +1,5 @@
 <?php 
 include 'index.php';
-
 ?>
 <style>
     .error {
@@ -15,7 +14,7 @@ include 'index.php';
   </style>
     <div class="container col-5 border">
         <form id="registrationForm" method="POST">
-            <center><h2 class="text-primary"> <b>Registration Form</b></h2></center>
+            <center><h2 class="text-primary"> <b>Update Your Profile</b></h2></center>
             <div class="form-group">
                 <label for="fullname">Full Name:</label>
                 <input type="text" class="form-control" id="fullname" name="fullname">

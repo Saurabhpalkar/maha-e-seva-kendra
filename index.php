@@ -79,6 +79,7 @@
 <div class="sidebar col-2 col-sm-2 col-xl-2 col-xxl-2 col-md-2">
   <div class=" col-12 p-0">
   <h3 class="text-warning"><b>Welcome</b>
+  <img src="<?php echo $_SESSION['id_proof']; ?>" class="img-fluid" width="150" height="160" />
   <p> <?php echo $_SESSION['firstname']; ?></h3></p>
   <hr>
   </div>
@@ -105,7 +106,7 @@
       <li>
         <a href="#">Documents</a>
         <ul class="sub-menu">
-          <li><a href="#">Income Certificate</a></li>
+          <li><a href="incomeCertificate.php">Income Certificate</a></li>
           <li><a href="birthCertificate.php">Birth Certificate</a></li>
           <li><a href="domicileCeretificate.php">Domicial Certificate</a></li>
         </ul>

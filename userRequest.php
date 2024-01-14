@@ -39,10 +39,10 @@ include 'index.php';
                 for(var i = 0 ; i<htttpResponse.length; i++){
                     var  row = $('<tr> ');
                     row.append('<td>' +    i + 1  + '</td>' )
-                    row.append('<td>' +    htttpResponse[i]['child_name']  + '</td>' )
+                    row.append('<td>' +    htttpResponse[i]['firstname']  + '</td>' )
                     row.append('<td>' +    htttpResponse[i]['document_name']  + '</td>' )
                     row.append('<td>' +    htttpResponse[i]['status'] + '</td>' )
-                    row.append('<td>  <button  onclick="viewdata('+htttpResponse[i]['id']+')"  name="view" id="view" class="btn btn-success" >VIEW</button></td>')
+                    row.append('<td>  <button  onclick="viewdata('+htttpResponse[i]['id']+','+htttpResponse[i]['document_value']+')"  name="view" id="view" class="btn btn-success" >VIEW</button></td>')
                     row.append('<td>  <button onclick="approveBtn('+htttpResponse[i]['id']+')" name="approve" id="approve" class="btn btn-primary">APPROVE</button></td>')
                 row.append('<td>  <button  onclick="rejectBtn('+htttpResponse[i]['id']+')"  name="REJECT" id="reject" class="btn btn-danger">REJECT</button></td>')
                 userRequest.append(row)
@@ -78,9 +78,24 @@ include 'index.php';
        })
     }
 
-    function viewdata(doc_id){
+    function viewdata(doc_id, doc_type ){
         // btnClick = 'view';
-        window.location.href = "birthCertificate.php?doc_id="+doc_id;
+        if(doc_type==1){
+            window.location.href = "birthCertificate.php?doc_id="+doc_id;
+        }else if(doc_type == 2){
+            window.location.href = "birthCertificate.php?doc_id="+doc_id;
+        }else if(doc_type == 3){
+            window.location.href = "birthCertificate.php?doc_id="+doc_id;
+        }else if(doc_type == 4){
+            window.location.href = "domicileCeretificate.php?doc_id="+doc_id;
+        }else if(doc_type == 5){
+            window.location.href = "birthCertificate.php?doc_id="+doc_id;
+        }else if(doc_type == 6){
+            window.location.href = "birthCertificate.php?doc_id="+doc_id;
+        }else if(doc_type == 7){
+            window.location.href = "birthCertificate.php?doc_id="+doc_id;
+        }
+        
         // crudOperation(doc_id, btnClick);
     }
 

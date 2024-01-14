@@ -5,7 +5,7 @@ require 'include/connection.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $query = "select  email, password, firstname, id, usertype from user where email =  '$username' AND password = '$password'";
+    $query = "select id_proof, email, password, firstname, id, usertype from user where email =  '$username' AND password = '$password'";
 
     $res = mysqli_query($connection, $query);
 
@@ -16,6 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['userid'] = $userid;
         $usertype = $row['usertype'];
         $_SESSION['usertype'] = $usertype;
+        $profile = $row['id_proof'];
+        $_SESSION['id_proof'] = $profile;
         echo "success";
     } else {
         echo "failed";

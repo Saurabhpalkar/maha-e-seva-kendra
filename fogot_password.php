@@ -10,14 +10,19 @@
         span{
             color: red;
         }
+        .d-flex .container{
+            padding: 2rem;
+            border: 1px solid lightgrey;
+        }
     </style>
 </head>
 <body>
-    <div class="container col-5 send-otp-div">
+    <div class="container col-12 m-5 d-flex" style="justify-content: center;">
+    <div class="container col-5 send-otp-div ">
         <form id="send_otp_form" action="">
             <h3>forgot password</h3>
             <div>
-                <input type="text" class="form-control" id="email" name="email">
+                <input type="text" class="form-control" id="email" name="email" placeholder="enter your email address">
                 <span id="error1"></span>
             </div>
             <div>
@@ -25,14 +30,13 @@
             </div>
         </form>
     </div>
-    <div class="container col-5 verify-otp-div " style="display: none;" >
+    <div class="container col-5 verify-otp-div " style="display:none ;" >
         <form  id="verifyForm">
             <h3>verify password</h3>
             <div>
-                <input type="text" class="form-control" id="otp" name="otp">
+                <input type="text" class="form-control" id="otp" name="otp" placeholder="enter your otp">
                 <span id="otp_error"></span>
             </div>
-          
             <div>
                 <button type="submit" class="btn btn-primary" id="verfiy-otp" name="verfiy-otp" >verify OTP</button>
             </div>
@@ -40,15 +44,16 @@
     </div>
     <div class="container col-5 pass-div " style="display: none ;" >
         <form  id="cpass_form">
-            <h3>Enter Your password</h3>
+            <h3>Change Password</h3>
             <div class="form-group">
-                <input type="text" class="form-control" id="cpass" name="cpass">
+                <input type="text" class="form-control" id="cpass" placeholder="Enter Your New Password" name="cpass">
                 <span id="cpass_error"></span>
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary form">change password</button>
             </div>
         </form>
+    </div>
     </div>
 </body>
 </html>
@@ -68,6 +73,7 @@
                         $("#error1").html("validate")
                         $(".verify-otp-div").show()
                         $(".send-otp-div").hide()
+                        alert("OTP has been sended on your email")
                     }else{
                         $("#error1").html("not validate")
                         $(".verify-otp-div").hide()
@@ -91,6 +97,7 @@
                     alert("OPT verification successfull")
                     $('.pass-div').show()
                     $('.verify-otp-div').hide()
+                    window.location.href = "index.php";
                 }else{
                     $('#otp_error').html("enter incorrect OTP");
                     $('.pass-div').hide()
