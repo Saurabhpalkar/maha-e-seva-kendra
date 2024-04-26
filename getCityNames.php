@@ -2,8 +2,10 @@
 include 'include/connection.php';
 
 if($_SERVER['REQUEST_METHOD']==='POST'){
-$stateid = $_POST['stateid'];
-$query = "select * from city_table c, state s where s.stateValue = c.stateId and stateId = '$stateid'";
+$districtid = $_POST['districtid'];
+// $query = "select * from city_table c, state s where s.stateValue = c.districtid and districtid = '$districtid'";
+$query = "SELECT * from city_table   WHERE  taluka_id = $districtid ";
+
 $res = mysqli_query($connection, $query) or die(mysqli_error($connection));
 $jsonArray = array();
 if(mysqli_num_rows($res)>0){

@@ -1,6 +1,6 @@
 <?php
 include 'include/connection.php';
-include 'index.php';
+include 'index1.php';
 if(!$_SESSION){
     header("location:home.php");
 }
@@ -153,6 +153,7 @@ if(!$_SESSION){
         <div class="col-12 form-group  details-container">
             <a href="incomeCertReqDoc.php" class="btn btn-primary btn-print">CONTINUE</a>
             <button class="btn btn-success btn-print" onclick="printYourDocument()">PRINT</button>
+            <a href="dashboard.php" class="btn btn-warning">BACK</a>
         </div>
     </div>
     </div>

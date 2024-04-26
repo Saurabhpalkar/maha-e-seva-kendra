@@ -97,7 +97,7 @@
                     alert("OPT verification successfull")
                     $('.pass-div').show()
                     $('.verify-otp-div').hide()
-                    window.location.href = "index.php";
+                    window.location.href = "index1.php";
                 }else{
                     $('#otp_error').html("enter incorrect OTP");
                     $('.pass-div').hide()

@@ -1,6 +1,6 @@
 <?php
 include 'include/connection.php';
-include 'index.php'
+include 'index1.php'
 ?>
 <style>
     .legend-heading {
@@ -15,12 +15,13 @@ include 'index.php'
         background-color: white;
     }
 </style>
-<div class=" col-10 col-sm-10 col-xl-10 col-xxl-10 col-md-10 " style="background-color: #red;">
+<div class=" col-12 col-sm-12 col-xl-12 col-xxl-12 col-md-12 ">
     <center class="form-group ">
         <h2 class="text-success"><b> Income Certificate </b> </h2>
+        <p class="text-danger">(*) Indicates all fields are required</p>
+
     </center>
 
-    <div id="error-message" class="alert alert-danger" style="display: none;"></div>
 
 
     <!--------------- domicile Certificate Insert------------------------------ -->
@@ -34,10 +35,10 @@ include 'index.php'
                         <select name="applicant_salutation" id="" class="form-control">
                             <option value="">select</option>
                             <?php
-                            $query = "SELECT DISTINCT salutation_val, salutation_txt FROM user";
+                            $query = "SELECT * FROM salutation_table";
                             $res = mysqli_query($connection, $query);
                             while ($rows = mysqli_fetch_assoc($res)) {
-                                echo "<option value='" . $rows['salutation_val'] . "'>" . $rows['salutation_txt'] . "</option>";
+                                echo "<option value='" . $rows['id'] . "'>" . $rows['salutation'] . "</option>";
                             }
                             ?>
                         </select>
@@ -54,7 +55,7 @@ include 'index.php'
                         <label for="applicant_lname">Middle Name<span class="requied_filed">*</span> </label>
                         <input type="text" name="applicant_lname" id="applicant_lname" class="form-control">
                     </div>
-                   
+
                     <div class="col-md-4 form-group">
                         <label for="">Date of Birth<span class="requied_filed">*</span> </label>
                         <input type="date" name="applicant_dob" id="applicant_dob" class="form-control">
@@ -70,9 +71,10 @@ include 'index.php'
                     <div class="col-md-4 form-group">
                         <label for="">Gender : <span class="requied_filed">*</span> </label>
                         <select class="form-control" name="applicant_gender" id="applicant_gender">
-                            <option value="1">1</option>
-                            <option value="1">2</option>
-                            <option value="1">3</option>
+                            <option value="">--Select one--</option>
+                            <option value="1">Male</option>
+                            <option value="1">Female</option>
+                            <option value="1">Other </option>
                         </select>
                     </div>
                     <!-- <div class="col-md-4 form-group">
@@ -82,9 +84,47 @@ include 'index.php'
                     <div class="col-md-4 form-group">
                         <label for="applicant_occupation">Occupation<span class="requied_filed">*</span> </label>
                         <select class="form-control" name="applicant_occupation" id="applicant_occupation">
-                            <option value="1">1</option>
-                            <option value="1">2</option>
-                            <option value="1">3</option>
+                            <option value="">Select Occupation</option>
+                            <option value="1">Teacher</option>
+                            <option value="2">Doctor</option>
+                            <option value="3">Lawyer</option>
+                            <option value="4">Engineer</option>
+                            <option value="5">Accountant</option>
+                            <option value="6">Architect</option>
+                            <option value="7">Software Developer</option>
+                            <option value="8">Salesperson</option>
+                            <option value="9">Consultant</option>
+                            <option value="10">Nurse</option>
+                            <option value="11">Electrician</option>
+                            <option value="12">Carpenter</option>
+                            <option value="13">Plumber</option>
+                            <option value="14">Mechanic</option>
+                            <option value="15">Farmer</option>
+                            <option value="16">Waiter/Waitress</option>
+                            <option value="17">Receptionist</option>
+                            <option value="18">Chef</option>
+                            <option value="19">Artist</option>
+                            <option value="20">Musician</option>
+                            <option value="21">Retail Worker</option>
+                            <option value="22">Manager</option>
+                            <option value="23">Entrepreneur</option>
+                            <option value="24">Hairdresser</option>
+                            <option value="25">Beautician</option>
+                            <option value="26">Tailor</option>
+                            <option value="27">Photographer</option>
+                            <option value="28">Journalist</option>
+                            <option value="29">Librarian</option>
+                            <option value="30">Police Officer</option>
+                            <option value="31">Firefighter</option>
+                            <option value="32">Paramedic</option>
+                            <option value="33">Security Guard</option>
+                            <option value="34">Delivery Driver</option>
+                            <option value="35">Taxi Driver</option>
+                            <option value="36">Pilot</option>
+                            <option value="37">Flight Attendant</option>
+                            <option value="38">Actor/Actress</option>
+                            <option value="39">Dancer</option>
+                            <option value="40">Athlete</option>
                         </select>
                     </div>
                 </fieldset>
@@ -113,27 +153,28 @@ include 'index.php'
                         <input type="text" name="landmark" id="landmark" class="form-control">
                     </div>
                     <div class="col-md-4 form-group">
+                        <label for="state">state<span class="requied_filed">*</span> </label>
+                        <select class="form-control" name="state" id="state">
+                            <option value="">-select one-</option>
+
+                        </select>
+                    </div>
+                    <div class="col-md-4 form-group">
                         <label for="district">District<span class="requied_filed">*</span> </label>
                         <select class="form-control" name="district" id="district">
-                            <option value="1">1</option>
-                            <option value="1">2</option>
-                            <option value="1">3</option>
+                            <option value="">--select one--</option>
                         </select>
                     </div>
                     <div class="col-md-4 form-group">
                         <label for="taluka">Taluka<span class="requied_filed">*</span> </label>
                         <select class="form-control" name="taluka" id="taluka">
-                            <option value="1">1</option>
-                            <option value="1">2</option>
-                            <option value="1">3</option>
+                            <option value="">--select one--</option>
                         </select>
                     </div>
                     <div class="col-md-4 form-group">
                         <label for="village">Village<span class="requied_filed">*</span> </label>
                         <select class="form-control" name="village" id="village">
-                            <option value="1">1</option>
-                            <option value="1">2</option>
-                            <option value="1">3</option>
+                            <option value="">--select one--</option>
                         </select>
                     </div>
                     <div class="col-md-4 form-group">
@@ -163,34 +204,33 @@ include 'index.php'
                         <input type="file" class="form-control" name="yourPhoto" id="yourPhoto">
                     </div>
                     <div class="col-md-4 form-group">
-                        sad
                     </div>
                 </fieldset>
             </div>
             <div class=" col-12 col-sm-12 col-xl-12 col-xxl-12 col-md-12 ">
-            <div class="col-12 form-group identity-container">
-                <fieldset class="border">
-                    <legend class="bg-primary legend-heading">Proof of Identity (Any-1)</legend>
-                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
-                        <?php
-                        $identityProofs = ['PAN Card', 'Passport', 'RSBY Card', 'Adhar Card', 'Voter ID Card', 'Driving License'];
+                <div class="col-12 col-sm-12 col-xl-12 col-xxl-12 col-md-12 form-group identity-container p-0">
+                    <fieldset class="border">
+                        <legend class="bg-primary legend-heading">Proof of Identity (Any-1)</legend>
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+                            <?php
+                            $identityProofs = ['PAN Card', 'Passport', 'RSBY Card', 'Adhar Card', 'Voter ID Card', 'Driving License'];
 
-                        foreach ($identityProofs as $key => $identityProof) {
-                            $checkboxName = strtolower(str_replace(' ', '_', $identityProof));
-                            $fileInputName = 'file_' . $checkboxName;
-                        ?>
-                            <div class="col">
-                                <label>
-                                    <?php echo ($key + 1) . ') ' . $identityProof; ?>
-                                    <input type="checkbox" name="<?php echo $checkboxName.'_addr'; ?>" class="form-group identity-checkbox">
-                                </label>
-                                <input type="file" name="<?php echo $fileInputName.'_addr'; ?>" class="form-control file-input" style="display: none;">
-                            </div>
-                        <?php } ?>
-                    </div>
-                </fieldset>
-            </div>
-                <div class="col-12 form-group address-container">
+                            foreach ($identityProofs as $key => $identityProof) {
+                                $checkboxName = strtolower(str_replace(' ', '_', $identityProof));
+                                $fileInputName = 'file_' . $checkboxName;
+                            ?>
+                                <div class="col">
+                                    <label>
+                                        <?php echo ($key + 1) . ') ' . $identityProof; ?>
+                                        <input type="checkbox" name="<?php echo $checkboxName . '_addr'; ?>" class="form-group identity-checkbox">
+                                    </label>
+                                    <input type="file" name="<?php echo $fileInputName . '_addr'; ?>" id="<?php echo $fileInputName . '_addr' ?>" class="form-control file-input" style="display: none;">
+                                </div>
+                            <?php } ?>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="col-12 col-sm-12 col-xl-12 col-xxl-12 col-md-12 p-0 form-group address-container">
                     <fieldset class="border">
                         <legend class="bg-primary legend-heading">Proof of Address (Any-1)</legend>
                         <div class="container">
@@ -213,7 +253,7 @@ include 'index.php'
                                             <?php echo ($key + 1) . ') ' . $proof; ?>
                                             <input type="checkbox" name="<?php echo $checkboxName; ?>" class="form-group proof-checkbox">
                                         </label>
-                                        <input type="file" name="<?php echo $fileInputName; ?>" class="form-control file-input" style="display: none;">
+                                        <input type="file" name="<?php echo $fileInputName; ?>" id="<?php echo $fileInputName ?>" class="form-control file-input" style="display: none;">
                                     </div>
                                 <?php } ?>
                             </div>
@@ -223,15 +263,19 @@ include 'index.php'
                 <div class="form-group">
                     <p>truseted <input type="checkbox" name="" id=""> i accept</p>
                 </div>
-                <div class="form-group">
-                    <input type="submit" value="REGISTER" class="btn btn-success" name="" id="submit_btn">
+                <div class="col-md-12 form-group">
+                    <div class="col-md-2">
+                        <input type="submit" value="REGISTER" class="btn btn-success" name="" id="submit_btn">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="button" value="BACK" class="btn btn-success" name="" id="">
+                    </div>
                 </div>
-                <div>
-                    <input type="button" value="BACK" class="btn btn-success" name="" id="">
-                </div>
+                <div id="error-message" class="alert alert-danger error-message col-md-12" role="alert" style="display: none;"></div>
             </div>
         </form>
     </div>
+</div>
 </div>
 </div>
 </div>
@@ -244,39 +288,157 @@ include 'index.php'
 </div>
 <script>
     $(document).ready(function() {
+        // $state = $(this).val();
+        var state_names = "state_names";
+        $.ajax({
+            url: "include/controller.php",
+            data: {
+                state_names: state_names
+            },
+            type: "POST",
+            success: function(data) {
+                var response = JSON.parse(data);
+                $.each(response, function(index, row) {
+                    var option = $('<option>');
+                    option.val(row.id).text(row.stateName)
+                    $('#state').append(option);
+                    // console.log(row.stateName);
+                })
+                $("#state").change(function() {
+                    var state_id = $(this).val();
+                    // alert($state_id);
+                    $.ajax({
+                        url: "include/controller.php",
+                        data: {
+                            state_id: state_id
+                        },
+                        type: "POST",
+                        success: function(data) {
+                            var response = JSON.parse(data);
+                            console.log(response)
+                            $('#district').empty();
+                            if (response.length > 0) {
+                                $('#district').append("<option value=''>--select one--</option>");
+                                $.each(response, function(index, row) {
+                                    var option = $('<option>');
+                                    option.val(row.id).text(row.district_name)
+                                    $('#district').append(option);
+                                    // console.log(row.stateName);
+                                })
+                            } else {
+                                var option = $('<option>');
+                                option.val("").text("No record found")
+                                $('#district').append(option);
+                            }
+                            village
+                            $("#district").change(function() {
+                                var district_id = $(this).val();
+                                // alert($state_id);
+                                $.ajax({
+                                    url: "include/controller.php",
+                                    data: {
+                                        district_id: district_id
+                                    },
+                                    type: "POST",
+                                    success: function(data) {
+                                        var response = JSON.parse(data);
+                                        console.log(response)
+                                        $('#taluka').empty();
+                                        if (response.length > 0) {
+                                            $('#taluka').append("<option value=''>--select one--</option>");
+                                            $.each(response, function(index, row) {
+                                                var option = $('<option>');
+                                                option.val(row.id).text(row.taluka_name)
+                                                $('#taluka').append(option);
+                                                // console.log(row.stateName);
+                                            })
+                                        } else {
+                                            var option = $('<option>');
+                                            option.val("").text("No record found")
+                                            $('#taluka').append(option);
+                                        }
+                                        $("#taluka").change(function() {
+                                            var taluka_id = $(this).val();
+                                            // alert($state_id);
+                                            $.ajax({
+                                                url: "include/controller.php",
+                                                data: {
+                                                    taluka_id: taluka_id
+                                                },
+                                                type: "POST",
+                                                success: function(data) {
+                                                    var response = JSON.parse(data);
+                                                    console.log(response)
+                                                    $('#village').empty();
+                                                    if (response.length > 0) {
+                                                        $('#village').append("<option value=''>--select one--</option>");
+                                                        $.each(response, function(index, row) {
+                                                            var option = $('<option>');
+                                                            option.val(row.id).text(row.cityName)
+                                                            $('#village').append(option);
+                                                            // console.log(row.stateName);
+                                                        })
+                                                    } else {
+                                                        var option = $('<option>');
+                                                        option.val("").text("No record found")
+                                                        $('#village').append(option);
+                                                    }
+                                                }
+                                            })
+                                        })
+                                    }
+                                })
+                            })
+                        }
+                    })
+                })
+            }
+        })
+
+
+        // })
+        // $("#state").change(function(){
+
         // $(document).ready(function () {
-        $('.identity-checkbox').change(function () {
+        $('.identity-checkbox').change(function() {
             var checkboxName = $(this).attr('name');
             var fileInput = $('.file-input[name="file_' + checkboxName + '"]');
-
+            var filevalue = $("#fileInput").val();
+            // alert(filevalue);
             if ($(this).is(':checked')) {
-                fileInput.show();
+                // alert()
+                if (fileInput.show()) {
+                    // alert("")
+                }
             } else {
                 fileInput.hide();
             }
         });
-    // });
-    // $(document).ready(function() {
+        // });
+        // $(document).ready(function() {
         $('.proof-checkbox').change(function() {
             var checkboxName = $(this).attr('name');
             var fileInput = $('.file-input[name="file_' + checkboxName + '"]');
 
             if ($(this).is(':checked')) {
-                fileInput.show();
+                if (fileInput.show()) {
+                    // alert("required")
+                    return false;
+                }
             } else {
                 fileInput.hide();
             }
         });
-    // });
+        // });
         $('#myform').submit(function(e) {
             e.preventDefault();
             // if (!validateForm()) {
-            //     return;
+            //     return ;
             // }
 
             var formData = new FormData(this);
             var submit_btn = $('#submit_btn').val()
-            formData.append('submit_btn',submit_btn)
+            formData.append('submit_btn', submit_btn)
             $.ajax({
                 url: 'incomeCertificateinsert.php',
                 type: 'POST',
@@ -286,59 +448,126 @@ include 'index.php'
                 dataType: 'json',
 
                 success: function(response) {
-                    console.log(response.message);
-                    if (response.status === "wrong_extn") {
-                        alert("Invalid file extension. Allowed extensions are JPG, JPEG, PNG, PDF.")
-                    } else if (response.status === "success") {
-                        alert("Registration successful")
-                        // window.location.href = 'login.php'
-                    } else {
-                        alert(response.message)
+                    console.log(response);
+                    var birth_fees = 200;
+                    var document_value = 2;
+                    var userDocTableID =  response.id
+                    if(response.success=== true){
+                        alert("You have successfully applied for income certificate");
+                        var url = "razarpay.php?birth_fees=" + encodeURIComponent(birth_fees) + "&userDocTableID=" + encodeURI(userDocTableID) + "&document_value=" + encodeURI(document_value);
+                                window.location.href = url;
+                    }else{
+                        console.log("somethings wrong please check")
                     }
+                    // if (response.status === "wrong_extn") {
+                    //     alert("Invalid file extension. Allowed extensions are JPG, JPEG, PNG, PDF.")
+                    // } else if (response.status === "success") {
+                    //     alert("Registration successful")
+                    //     // window.location.href = 'login.php'
+                    // } else {
+                    //     alert(response.message)
+                    // }
                 }
             });
         });
 
         // Function to validate the form
         function validateForm() {
-            // Add your form validation logic here
-            // Return true if the form is valid, otherwise return false
-
-            // Example validation (you can customize this based on your requirements)
             var isValid = true;
-            $("#error-message").text("").hide();
+            $(".error-message").text("").hide();
 
-            if ($(".proof-checkbox:checked").length === 0) {
-        $("#error-message").text("Please select at least one proof of address.").show();
-        isValid = false;
-      }
-
-      var photoInput = $("#yourPhoto");
-      if (photoInput.length > 0 && photoInput[0].files.length === 0) {
-        $("#error-message").text("Please upload a photograph.").show();
-        isValid = false;
-      }
-
-      // Validate at least one proof of identity is selected
-      if ($(".identity-checkbox:checked").length === 0) {
-        $("#error-message").text("Please select at least one proof of identity.").show();
-        isValid = false;
-      }
-
-      // Validate at least one proof of address is selected
-      if ($(".proof-checkbox:checked").length === 0) {
-        $("#error-message").text("Please select at least one proof of address.").show();
-        isValid = false;
-      }
-            // Validate other form fields
-            // if ($('#applicant_name').val() === '') {
-            //     alert('Please enter the applicant name.');
+            // if ($(".proof-checkbox:checked").length === 0) {
+            //     $(".error-message").text("Please select at least one proof of address.").show();
             //     isValid = false;
             // }
 
-            // // Validate file uploads
+            // var photoInput = $("#yourPhoto");
+            // if (photoInput.length > 0 && photoInput[0].files.length === 0) {
+            //     $(".error-message").text("Please upload a photograph.").show();
+            //     isValid = false;
+            // }
+                
+            // Validate at least one proof of identity is selected
+            if ($(".identity-checkbox:checked").length === 0) {
+                $(".error-message").text("Please select at least one proof of identity.").show();
+                isValid = false;
+            }
+
+            // Validate at least one proof of address is selected
+            // if ($(".proof-checkbox:checked").length === 0) {
+            //     $(".error-message").text("Please select at least one proof of address.").show();
+            //     isValid = false;
+            // }
+            // // Validate other form fields
+            // if ($('#applicant_name').val() === '') {
+            //     $(".error-message").text('Please enter the applicant name.');
+            //     isValid = false;
+            // }
+
+            // // // Validate file uploads
             // if ($('input[name="yourPhoto"]').is(':visible') && $('input[name="yourPhoto"]').get(0).files.length === 0) {
-            //     alert('Please upload a photograph.');
+            //     $(".error-message").text('Please upload a photograph.');
+            //     isValid = false;
+            // }
+            // if ($('#father_name').val() === '') {
+            //     $(".error-message").text('Please enter the applicant father name.');
+            //     isValid = false;
+            // }
+            // if ($('#applicant_lname').val() === '') {
+            //     $(".error-message").text('Please enter the applicant last name.');
+            //     isValid = false;
+            // }
+            // if ($('#applicant_dob').val() === '') {
+            //     $(".error-message").text('Please enter the applicant DOB.');
+            //     isValid = false;
+            // }
+            // if ($('#applicant_age').val() === '') {
+            //     $(".error-message").text('Please enter the applicant age.');
+            //     isValid = false;
+            // }
+            // if ($('#applicant_num').val() === '') {
+            //     $(".error-message").text('Please enter the applicant mobile number.');
+            //     isValid = false;
+            // }
+
+            // if ($('#applicant_gender option:selected').val() === '') {
+            //     $(".error-message").text('Please enter the applicant gender.');
+            //     isValid = false;
+            // }
+            // if ($('#applicant_occupation option:selected').val() === '') {
+            //     $(".error-message").text('Please select the applicant occupation.');
+            //     isValid = false;
+            // }
+            // if ($('#applicant_addr').val() === '') {
+            //     $(".error-message").text('Please enter the applicant address.');
+            //     isValid = false;
+            // }
+            // if ($('#applicant_street').val() === '') {
+            //     $(".error-message").text('Please enter the applicant street name.');
+            //     isValid = false;
+            // }
+            // if ($('#section').val() === '') {
+            //     $(".error-message").text('Please enter the section name.');
+            //     isValid = false;
+            // }
+            // if ($('#building').val() === '') {
+            //     $(".error-message").text('Please enter the building name.');
+            //     isValid = false;
+            // }
+            // if ($('#landmark').val() === '') {
+            //     $(".error-message").text('Please enter the landmark name.');
+            //     isValid = false;
+            // }
+            // if ($('#district option:selected').val() === '') {
+            //     $(".error-message").text('Please select the district name.');
+            //     isValid = false;
+            // }
+            // if ($('#taluka option:selected').val() === '') {
+            //     $(".error-message").text('Please select the your taluka name.');
+            //     isValid = false;
+            // }
+            // if ($('#village option:selected').val() === '') {
+            //     $(".error-message").text('Please select the your village name.');
             //     isValid = false;
             // }
 

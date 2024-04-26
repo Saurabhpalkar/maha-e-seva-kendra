@@ -7,7 +7,7 @@
   <link rel="stylesheet" type="text/css" href="css/cssFile.css">
 <script src="js/js.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
 .sidebar {
   /* width: 200px; */
@@ -84,6 +84,9 @@
   <hr>
   </div>
     <ul class="list-unstyled">
+    <li>
+        <a href="documentStatus.php">Home</a>
+      </li>
     <?php
       if($_SESSION['usertype']== 1){
         ?>

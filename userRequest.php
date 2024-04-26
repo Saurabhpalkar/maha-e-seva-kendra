@@ -1,9 +1,9 @@
 <?php 
-include 'index.php';
+include 'index1.php';
 ?>
 
-<div class="container col-10" >
-    <h1>User Requests</h1>
+<div class="container col-md-10" >
+    <h1 class="text-center text-primary"><b>USER REQUESTS</b></h1>
     <div class="fluid-container"style="display: flex; ">
         <table class="table-bordered table" id= "userRequest">
             <thead>
@@ -81,19 +81,19 @@ include 'index.php';
     function viewdata(doc_id, doc_type ){
         // btnClick = 'view';
         if(doc_type==1){
-            window.location.href = "birthCertificate.php?doc_id="+doc_id;
+            window.location.href = "birthCertificate.php?doc_id="+doc_id + "&doc_type="+doc_type;
         }else if(doc_type == 2){
-            window.location.href = "birthCertificate.php?doc_id="+doc_id;
+            window.location.href = "birthCertificate.php?doc_id="+doc_id + "&doc_type="+doc_type;
         }else if(doc_type == 3){
-            window.location.href = "birthCertificate.php?doc_id="+doc_id;
+            window.location.href = "domicileCeretificate.php?doc_id="+ doc_id + "&doc_type="+doc_type;
         }else if(doc_type == 4){
-            window.location.href = "domicileCeretificate.php?doc_id="+doc_id;
+            window.location.href = "domicileCeretificate.php?doc_id="+ doc_id + "&doc_type="+doc_type;
         }else if(doc_type == 5){
-            window.location.href = "birthCertificate.php?doc_id="+doc_id;
+            window.location.href = "birthCertificate.php?doc_id="+ doc_id + "&doc_type="+doc_type;
         }else if(doc_type == 6){
-            window.location.href = "birthCertificate.php?doc_id="+doc_id;
+            window.location.href = "birthCertificate.php?doc_id="+ doc_id + "&doc_type="+doc_type;
         }else if(doc_type == 7){
-            window.location.href = "birthCertificate.php?doc_id="+doc_id;
+            window.location.href = "birthCertificate.php?doc_id="+ doc_id + "&doc_type="+doc_type;
         }
         
         // crudOperation(doc_id, btnClick);

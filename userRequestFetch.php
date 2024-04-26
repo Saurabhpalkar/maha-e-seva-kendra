@@ -2,7 +2,7 @@
 session_start();
 include 'include/connection.php';
 if($_SERVER['REQUEST_METHOD']=== 'POST'){
-    $query = "SELECT ud.*, u.id, u.firstname FROM userdocuments ud,  user u  WHERE ud.userid = u.id AND  ud.status = 'INACTIVE'";
+    $query = "SELECT ud.*, u.firstname, u.middlename, u.lastname FROM userdocuments ud,  all_users_cert u  WHERE ud.id = u.user_doc_id AND  ud.status = 'INACTIVE'";
     $res = mysqli_query($connection, $query);
     $jsonArray = array();
     if($res){

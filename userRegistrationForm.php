@@ -1,5 +1,5 @@
 <?php
-include 'index.php';
+include 'index1.php';
 ?>
     <div class="container border col-5">
         <h3> Register User</h3>
